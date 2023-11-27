@@ -1,22 +1,31 @@
 package com.example.sillim.service;
 
-import com.example.sillim.dto.TestDto;
+import com.example.sillim.entity.Notice;
+import com.example.sillim.entity.Test;
+import com.example.sillim.repository.NoticeRepository;
 import com.example.sillim.repository.TestRepository;
-import org.springframework.stereotype.Component;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
+@RequiredArgsConstructor
 @Service
-@Component
 public class TestService {
     private final TestRepository testRepository;
+    private final NoticeRepository noticeRepository;
 
-    public TestService(TestRepository testRepository) {
-        this.testRepository = testRepository;
+    public Optional<Test> testServiceMethod(String str) {
+        Optional<Test> test = testRepository.findById(1);
+
+        return test;
     }
 
-    public TestDto testServiceMethod(String str) {
-        TestDto testDto = new TestDto(str);
+    public void save(Test test){
+        testRepository.save(test);
+    }
 
-        return testDto;
+    public void save(Notice notice){
+        noticeRepository.save(notice);
     }
 }
