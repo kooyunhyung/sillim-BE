@@ -2,15 +2,13 @@ package com.example.sillim.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EnableJpaAuditing
 @EntityListeners(AuditingEntityListener.class)
@@ -18,6 +16,7 @@ public class Notice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
+    @JsonProperty("sn_id")
     private Integer noticeId;
 
     @Column(length = 100)
@@ -32,11 +31,4 @@ public class Notice {
     @JsonProperty("sn_content")
     private String noticeContent;
 
-    @Builder
-    public Notice(Integer noticeId, String noticeTitle, String noticeCreator, String noticeContent) {
-        this.noticeId = noticeId;
-        this.noticeTitle = noticeTitle;
-        this.noticeCreator = noticeCreator;
-        this.noticeContent = noticeContent;
-    }
 }
