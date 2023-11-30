@@ -1,8 +1,8 @@
 package com.example.sillim.controller;
 
 import com.example.sillim.dto.ResponseDto;
-import com.example.sillim.entity.Notice;
-import com.example.sillim.service.NoticeService;
+import com.example.sillim.entity.Board;
+import com.example.sillim.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,16 +14,16 @@ import java.util.Optional;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/sillim")
-public class NoticeController {
-    private final NoticeService noticeService;
+public class BoardController {
+    private final BoardService boardService;
 
-    // Create (notice)
-    @PostMapping("/notice")
-    public ResponseDto createNotice(@RequestBody Notice noticeParam){
+    // Create (board)
+    @PostMapping("/board")
+    public ResponseDto createBoard(@RequestBody Board boardParam){
         try{
-            if (noticeParam != null) {
-                noticeService.save(noticeParam);
-                return new ResponseDto<>(200, Optional.of(noticeParam));
+            if (boardParam != null) {
+                boardService.save(boardParam);
+                return new ResponseDto<>(200, Optional.of(boardParam));
             } else {
                 return new ResponseDto<>(400);
             }
@@ -34,25 +34,25 @@ public class NoticeController {
     }
 
 
-    // Read All (notice)
-    @GetMapping("/notice")
-    public Optional<List<Notice>> getNotices() {
+    // Read All (board)
+    @GetMapping("/board")
+    public Optional<List<Board>> getBoards() {
         try {
-            Optional<List<Notice>> notices = noticeService.findAll();
-            return notices;
+            Optional<List<Board>> boards = boardService.findAll();
+            return boards;
         }catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    // Read One (notice)
-    @GetMapping("/notice/{id}")
-    public ResponseEntity<ResponseDto> getNotice(@PathVariable int id) {
+    // Read One (board)
+    @GetMapping("/board/{id}")
+    public ResponseEntity<ResponseDto> getBoard(@PathVariable int id) {
         try {
-            Optional<Notice> notice = noticeService.findOne(id);
-            if (notice!=null) {
-                return new ResponseEntity<>(new ResponseDto<>(200, notice), HttpStatus.OK);
+            Optional<Board> board = boardService.findOne(id);
+            if (board!=null) {
+                return new ResponseEntity<>(new ResponseDto<>(200, board), HttpStatus.OK);
             } else {
                 return new ResponseEntity<>(new ResponseDto<>(404), HttpStatus.NOT_FOUND);
             }
@@ -63,25 +63,25 @@ public class NoticeController {
     }
 
     // Update (notice)
-    @PostMapping("/notice/{id}")
-    public ResponseEntity<ResponseDto> updateNotice(@PathVariable int id, @RequestBody Notice updatedNotice) {
+    @PostMapping("/board/{id}")
+    public ResponseEntity<ResponseDto> updateBoard(@PathVariable int id, @RequestBody Board updatedBoard) {
         try {
-            noticeService.update(id,updatedNotice);
+            boardService.update(id,updatedBoard);
 
-            return new ResponseEntity<>(new ResponseDto<>(200, Optional.of(updatedNotice)), HttpStatus.OK);
+            return new ResponseEntity<>(new ResponseDto<>(200, Optional.of(updatedBoard)), HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>(new ResponseDto<>(500), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    // Delete (notice)
-    @DeleteMapping("/notice/{id}")
-    public ResponseEntity<ResponseDto> deleteNotice(@PathVariable int id) {
+    // Delete (board)
+    @DeleteMapping("/board/{id}")
+    public ResponseEntity<ResponseDto> deleteBoard(@PathVariable int id) {
         try {
-            Optional<Notice> existingNotice = noticeService.findOne(id);
-            if (existingNotice!=null) {
-                noticeService.delete(id);
+            Optional<Board> existingBoard = boardService.findOne(id);
+            if (existingBoard!=null) {
+                boardService.delete(id);
                 return new ResponseEntity<>(new ResponseDto<>(200), HttpStatus.OK);
             } else {
                 return new ResponseEntity<>(new ResponseDto<>(404), HttpStatus.NOT_FOUND);
@@ -91,5 +91,4 @@ public class NoticeController {
             return new ResponseEntity<>(new ResponseDto<>(500), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
 }
