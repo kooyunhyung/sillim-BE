@@ -35,4 +35,14 @@ public class BoardService {
         boardRepository.deleteById(id);
     }
 
+    public Optional<List<Board>> findPopularBoard() {
+        List<Board> popularBoards = boardRepository.findPopularBoard();
+        return Optional.of(popularBoards);
+    }
+
+    public Optional<List<Board>> findBookmarkedBoard() {
+        List<Board> bookmarkedBoards = boardRepository.findBookmarkedBoard();
+        return Optional.of(bookmarkedBoards);
+    }
+
 }

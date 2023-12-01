@@ -46,6 +46,28 @@ public class BoardController {
         }
     }
 
+    @GetMapping("/board/popular")
+    public Optional<List<Board>> getPopularBoards() {
+        try {
+            Optional<List<Board>> boards = boardService.findPopularBoard();
+            return boards;
+        }catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @GetMapping("/board/bookmark")
+    public Optional<List<Board>> getBookmarkedBoards() {
+        try {
+            Optional<List<Board>> boards = boardService.findBookmarkedBoard();
+            return boards;
+        }catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     // Read One (board)
     @GetMapping("/board/{id}")
     public ResponseEntity<ResponseDto> getBoard(@PathVariable int id) {

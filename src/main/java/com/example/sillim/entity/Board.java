@@ -35,8 +35,8 @@ public class Board {
     private String boardContent;
 
     @JsonProperty("sb_like")
-    private Integer boardLike = 0; // 기본값 0
+    private Integer boardLike;
 
     @JsonProperty("sb_bookmark")
-    private Boolean boardBookmark = false; // 기본값 false
+    private Boolean boardBookmark;
 }
