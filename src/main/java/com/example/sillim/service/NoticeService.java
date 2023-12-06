@@ -13,8 +13,8 @@ import java.util.Optional;
 public class NoticeService {
     private final NoticeRepository noticeRepository;
 
-    public void save(Notice noticeParam){
-        noticeRepository.save(noticeParam);
+    public Notice save(Notice noticeParam){
+        return noticeRepository.save(noticeParam);
     }
 
     public Optional<List<Notice>> findAll() {

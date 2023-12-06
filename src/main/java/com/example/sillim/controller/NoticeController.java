@@ -22,8 +22,8 @@ public class NoticeController {
     public ResponseDto createNotice(@RequestBody Notice noticeParam){
         try{
             if (noticeParam != null) {
-                noticeService.save(noticeParam);
-                return new ResponseDto<>(200, Optional.of(noticeParam));
+                Notice result = noticeService.save(noticeParam);
+                return new ResponseDto<>(200, Optional.of(result));
             } else {
                 return new ResponseDto<>(400);
             }
