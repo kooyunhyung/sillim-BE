@@ -21,4 +21,9 @@ public class NoticeElasticSearchController {
     NoticeElasticSearch insertNotice(@RequestBody NoticeElasticSearch notice) {
         return noticeElasticSearchService.insertNotices(notice);
     }
+
+    @DeleteMapping("/delete/{id}")
+    void deleteNotice(@PathVariable int id) {
+        noticeElasticSearchService.deleteNotices(id);
+    }
 }

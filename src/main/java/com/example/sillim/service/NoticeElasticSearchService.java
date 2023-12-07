@@ -1,6 +1,5 @@
 package com.example.sillim.service;
 
-import com.example.sillim.entity.BoardElasticSearch;
 import com.example.sillim.entity.NoticeElasticSearch;
 import com.example.sillim.repository.NoticeElasticSearchRepo;
 import org.springframework.beans.factory.annotation.Autowired;

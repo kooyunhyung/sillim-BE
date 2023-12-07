@@ -26,7 +26,7 @@ public class BoardElasticSearchService {
         return board1;
     }
 
-    public void deleteBoards(int id ){
+    public void deleteBoards(int id){
         boardElasticSearchRepo.deleteById(id);
     }
 }
