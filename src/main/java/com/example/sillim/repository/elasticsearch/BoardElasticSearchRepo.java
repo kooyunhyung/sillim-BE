@@ -1,7 +1,6 @@
-package com.example.sillim.repository;
+package com.example.sillim.repository.elasticsearch;
 
-import com.example.sillim.entity.Board;
-import com.example.sillim.entity.BoardElasticSearch;
+import com.example.sillim.entity.elasticsearch.BoardElasticSearch;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
 public interface BoardElasticSearchRepo extends ElasticsearchRepository<BoardElasticSearch, Integer> {

@@ -1,7 +1,7 @@
-package com.example.sillim.service;
+package com.example.sillim.service.elasticsearch;
 
-import com.example.sillim.entity.Product;
-import com.example.sillim.repository.ProductRepo;
+import com.example.sillim.entity.elasticsearch.Product;
+import com.example.sillim.repository.elasticsearch.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,12 +17,6 @@ public class ProductService {
 
     public Iterable<Product> getProducts() {
         return productRepo.findAll();
-    }
-
-    public Product updateProducts(Product product, int id) {
-        Product product1= productRepo.findById(id).get();
-        product1.setPrice(product.getPrice());
-        return product1;
     }
 
     public void deleteProducts(int id) {

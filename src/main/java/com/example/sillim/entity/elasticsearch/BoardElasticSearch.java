@@ -1,4 +1,4 @@
-package com.example.sillim.entity;
+package com.example.sillim.entity.elasticsearch;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

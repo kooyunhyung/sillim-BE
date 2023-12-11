@@ -1,7 +1,7 @@
-package com.example.sillim.service;
+package com.example.sillim.service.elasticsearch;
 
-import com.example.sillim.entity.BoardElasticSearch;
-import com.example.sillim.repository.BoardElasticSearchRepo;
+import com.example.sillim.entity.elasticsearch.BoardElasticSearch;
+import com.example.sillim.repository.elasticsearch.BoardElasticSearchRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +18,6 @@ public class BoardElasticSearchService {
 
     public Iterable<BoardElasticSearch> getBoards() {
         return boardElasticSearchRepo.findAll();
-    }
-
-    public BoardElasticSearch updateBoards(BoardElasticSearch board, int id) {
-        BoardElasticSearch board1= boardElasticSearchRepo.findById(id).get();
-        board1.setBoardLike(board.getBoardLike());
-        return board1;
     }
 
     public void deleteBoards(int id){

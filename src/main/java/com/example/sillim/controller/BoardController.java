@@ -84,7 +84,7 @@ public class BoardController {
         }
     }
 
-    // Update (notice)
+    // Update (board)
     @PostMapping("/board/{id}")
     public ResponseEntity<ResponseDto> updateBoard(@PathVariable int id, @RequestBody Board updatedBoard) {
         try {

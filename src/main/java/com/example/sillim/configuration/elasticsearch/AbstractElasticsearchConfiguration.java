@@ -1,4 +1,4 @@
-package com.example.sillim.configuration;
+package com.example.sillim.configuration.elasticsearch;
 
 import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.context.annotation.Bean;

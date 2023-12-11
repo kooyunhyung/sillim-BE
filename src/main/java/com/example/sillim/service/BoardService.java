@@ -1,7 +1,6 @@
 package com.example.sillim.service;
 
 import com.example.sillim.entity.Board;
-//import com.example.sillim.repository.BoardElasticSearchRepo;
 import com.example.sillim.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

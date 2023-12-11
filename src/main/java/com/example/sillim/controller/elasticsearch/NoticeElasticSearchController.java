@@ -1,7 +1,7 @@
-package com.example.sillim.controller;
+package com.example.sillim.controller.elasticsearch;
 
-import com.example.sillim.entity.NoticeElasticSearch;
-import com.example.sillim.service.NoticeElasticSearchService;
+import com.example.sillim.entity.elasticsearch.NoticeElasticSearch;
+import com.example.sillim.service.elasticsearch.NoticeElasticSearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
