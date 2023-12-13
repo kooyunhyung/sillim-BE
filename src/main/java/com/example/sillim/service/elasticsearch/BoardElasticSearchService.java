@@ -21,6 +21,7 @@ public class BoardElasticSearchService {
     }
 
     public void deleteBoards(int id){
+        // cascade 옵션이 없기 때문에 게시글이 삭제되면 연관된 댓글들 삭제하도록 로직 작성...
         boardElasticSearchRepo.deleteById(id);
     }
 }

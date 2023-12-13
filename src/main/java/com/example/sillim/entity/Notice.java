@@ -6,6 +6,8 @@ import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -30,5 +32,20 @@ public class Notice {
     @Column(length = 500)
     @JsonProperty("sn_content")
     private String noticeContent;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "notice", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<NoticeComment> commentList;
+
+    // 연관관계 메서드
+
+    public void addComment(NoticeComment comment) {
+        commentList.add(comment);
+        comment.setNotice(this);
+    }
+
+    public void removeComment(NoticeComment comment) {
+        commentList.remove(comment);
+        comment.setNotice(null);
+    }
 
 }

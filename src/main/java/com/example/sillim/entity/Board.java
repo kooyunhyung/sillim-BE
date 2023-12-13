@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -16,6 +18,7 @@ import javax.persistence.*;
 @EnableJpaAuditing
 @EntityListeners(AuditingEntityListener.class)
 public class Board {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
@@ -39,4 +42,19 @@ public class Board {
 
     @JsonProperty("sb_bookmark")
     private Boolean boardBookmark;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<BoardComment> commentList;
+
+    // 연관관계 메서드
+
+    public void addComment(BoardComment comment) {
+        commentList.add(comment);
+        comment.setBoard(this);
+    }
+
+    public void removeComment(BoardComment comment) {
+        commentList.remove(comment);
+        comment.setBoard(null);
+    }
 }
