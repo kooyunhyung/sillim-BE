@@ -1,5 +1,6 @@
 package com.example.sillim.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -34,7 +35,8 @@ public class NoticeComment {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "notice_id")
-    @JsonProperty("snc_sn_id")
+    @JsonProperty("snc_board")
+    @JsonBackReference
     private Notice notice;
 
     // 연관관계 메서드

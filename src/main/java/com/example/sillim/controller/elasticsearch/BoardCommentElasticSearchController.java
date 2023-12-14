@@ -1,7 +1,6 @@
 package com.example.sillim.controller.elasticsearch;
 
 import com.example.sillim.entity.elasticsearch.BoardCommentElasticSearch;
-import com.example.sillim.entity.elasticsearch.BoardElasticSearch;
 import com.example.sillim.service.elasticsearch.BoardCommentElasticSearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,4 +26,10 @@ public class BoardCommentElasticSearchController {
     void deleteBoardComment(@PathVariable int id) {
         boardCommentElasticSearchService.deleteBoardComments(id);
     }
+
+    // delete by cascading
+//    @DeleteMapping("/deleteByCascading/{board_id}")
+//    void deleteBoardCommentByCascading(@PathVariable int board_id) {
+//        boardCommentElasticSearchService.deleteBoardCommentsByCascading(board_id);
+//    }
 }

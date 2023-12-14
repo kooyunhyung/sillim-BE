@@ -20,7 +20,11 @@ public class BoardCommentElasticSearchService {
         return boardCommentElasticSearchRepo.findAll();
     }
 
-    public void deleteBoardComments(int id){
-        boardCommentElasticSearchRepo.deleteById(id);
+    public void deleteBoardComments(int comment_id){
+        boardCommentElasticSearchRepo.deleteById(comment_id);
     }
+
+//    public void deleteBoardCommentsByCascading(int board_id) {
+//        boardCommentElasticSearchRepo.deleteByCascadingId(board_id);
+//    }
 }

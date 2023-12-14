@@ -1,5 +1,6 @@
 package com.example.sillim.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -44,6 +45,8 @@ public class Board {
     private Boolean boardBookmark;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonProperty("sb_comment_list")
+    @JsonManagedReference
     private List<BoardComment> commentList;
 
     // 연관관계 메서드

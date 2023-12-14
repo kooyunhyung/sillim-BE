@@ -1,5 +1,6 @@
 package com.example.sillim.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.*;
 import lombok.*;
@@ -34,6 +35,8 @@ public class Notice {
     private String noticeContent;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "notice", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonProperty("sn_comment_list")
+    @JsonManagedReference
     private List<NoticeComment> commentList;
 
     // 연관관계 메서드

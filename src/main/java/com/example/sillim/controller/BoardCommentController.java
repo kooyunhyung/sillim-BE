@@ -18,7 +18,7 @@ import java.util.Optional;
 public class BoardCommentController {
     private final BoardCommentService boardCommentService;
 
-    // Create (notice)
+    // Create (board comment)
     @PostMapping("/board/comment")
     public ResponseDto createBoardComment(@RequestBody BoardComment boardCommentParam){
         try{
@@ -35,7 +35,7 @@ public class BoardCommentController {
     }
 
 
-    // Read All (notice)
+    // Read All (board comment)
     @GetMapping("/board/comment/{board_id}")
     public Optional<List<BoardComment>> getBoardComments(@PathVariable int board_id) {
         try {
@@ -60,7 +60,7 @@ public class BoardCommentController {
 //        }
 //    }
 
-    // Delete (notice)
+    // Delete (board comment)
     @DeleteMapping("/board/comment/{id}")
     public ResponseEntity<ResponseDto> deleteBoardComment(@PathVariable int id) {
         try {

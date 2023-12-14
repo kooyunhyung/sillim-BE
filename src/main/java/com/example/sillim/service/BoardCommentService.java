@@ -1,7 +1,6 @@
 package com.example.sillim.service;
 
 import com.example.sillim.entity.BoardComment;
-import com.example.sillim.entity.NoticeComment;
 import com.example.sillim.repository.BoardCommentRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
