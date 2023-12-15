@@ -24,4 +24,5 @@ public class BoardElasticSearch {
     private Integer boardLike;
 
     private Boolean boardBookmark;
+
 }

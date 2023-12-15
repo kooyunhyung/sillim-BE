@@ -42,12 +42,22 @@ public class Board {
     private Integer boardLike;
 
     @JsonProperty("sb_bookmark")
-    private Boolean boardBookmark;
+    private boolean boardBookmark;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonProperty("sb_comment_list")
     @JsonManagedReference
     private List<BoardComment> commentList;
+
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JsonProperty("sb_likes_list")
+//    @JsonManagedReference
+//    private List<Likes> likesList;
+//
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JsonProperty("sb_bookmark_list")
+//    @JsonManagedReference
+//    private List<Bookmark> bookmarkList;
 
     // 연관관계 메서드
 

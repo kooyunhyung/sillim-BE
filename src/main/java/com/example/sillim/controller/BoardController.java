@@ -18,7 +18,7 @@ public class BoardController {
     private final BoardService boardService;
 
     // Create (board)
-    @PostMapping("/board")
+    @PostMapping(value = "/board")
     public ResponseDto createBoard(@RequestBody Board boardParam){
         try{
             if (boardParam != null) {

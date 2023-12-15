@@ -34,9 +34,9 @@ public class NoticeComment {
     private String noticeCommentContent;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "notice_id")
-    @JsonProperty("snc_board")
+    @JoinColumn(name = "notice_id",insertable = false, updatable = false)
     @JsonBackReference
+    @JsonProperty("snc_notice")
     private Notice notice;
 
     // 연관관계 메서드

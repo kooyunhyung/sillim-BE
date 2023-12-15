@@ -23,7 +23,6 @@ public interface BoardRepository extends JpaRepository<Board, Integer> {
             findBoard.setBoardCreator(boardParam.getBoardCreator());
             findBoard.setBoardContent(boardParam.getBoardContent());
             findBoard.setBoardLike(boardParam.getBoardLike());
-            findBoard.setBoardBookmark(boardParam.getBoardBookmark());
         });
     }
 

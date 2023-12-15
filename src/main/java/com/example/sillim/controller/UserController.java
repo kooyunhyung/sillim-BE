@@ -1,7 +1,6 @@
 package com.example.sillim.controller;
 
 import com.example.sillim.dto.ResponseDto;
-import com.example.sillim.entity.Board;
 import com.example.sillim.entity.User;
 import com.example.sillim.service.UserService;
 import lombok.RequiredArgsConstructor;
