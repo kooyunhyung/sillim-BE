@@ -7,6 +7,9 @@ import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -38,6 +41,15 @@ public class Notice {
     @JsonProperty("sn_comment_list")
     @JsonManagedReference
     private List<NoticeComment> commentList;
+
+    @Column(name = "created_at", nullable = false, updatable = false)
+    @JsonProperty("sn_date")
+    private ZonedDateTime noticeCreatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        noticeCreatedAt = ZonedDateTime.now(ZoneId.of("Asia/Seoul"));
+    }
 
     // 연관관계 메서드
 

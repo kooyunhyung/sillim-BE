@@ -25,4 +25,6 @@ public class BoardElasticSearch {
 
     private Boolean boardBookmark;
 
+    private String boardDate;
+
 }

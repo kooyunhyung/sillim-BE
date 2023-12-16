@@ -20,4 +20,6 @@ public class NoticeElasticSearch {
     private String noticeCreator;
 
     private String noticeContent;
+
+    private String noticeDate;
 }

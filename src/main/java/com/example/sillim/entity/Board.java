@@ -10,6 +10,8 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import javax.persistence.*;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 @Entity
@@ -43,6 +45,15 @@ public class Board {
 
     @JsonProperty("sb_bookmark")
     private boolean boardBookmark;
+
+    @Column(name = "created_at", nullable = false, updatable = false)
+    @JsonProperty("sb_date")
+    private ZonedDateTime boardCreatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        boardCreatedAt = ZonedDateTime.now(ZoneId.of("Asia/Seoul"));
+    }
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "board", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonProperty("sb_comment_list")
