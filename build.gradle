@@ -13,6 +13,7 @@
 //		classpath("org.springframework.boot:spring-boot-gradle-plugin:2.7.14.RELEASE")
 //	}
 //}
+
 plugins {
 	id 'java'
 	id 'org.springframework.boot' version '2.7.14'

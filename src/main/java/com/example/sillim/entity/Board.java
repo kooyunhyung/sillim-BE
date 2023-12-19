@@ -44,7 +44,7 @@ public class Board {
     private Integer boardLike;
 
     @JsonProperty("sb_bookmark")
-    private boolean boardBookmark;
+    private Boolean boardBookmark;
 
     @Column(name = "created_at", nullable = false, updatable = false)
     @JsonProperty("sb_date")

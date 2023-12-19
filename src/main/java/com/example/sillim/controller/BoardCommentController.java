@@ -24,6 +24,9 @@ public class BoardCommentController {
         try{
             if (boardCommentParam != null) {
                 BoardComment result = boardCommentService.save(boardCommentParam);
+
+                // 푸시 알림 전송 코드 작성
+
                 return new ResponseDto<>(200, Optional.of(result));
             } else {
                 return new ResponseDto<>(400);
