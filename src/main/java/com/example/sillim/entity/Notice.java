@@ -52,7 +52,6 @@ public class Notice {
     }
 
     // 연관관계 메서드
-
     public void addComment(NoticeComment comment) {
         commentList.add(comment);
         comment.setNotice(this);

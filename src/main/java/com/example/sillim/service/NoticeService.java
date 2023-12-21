@@ -34,6 +34,4 @@ public class NoticeService {
     public void delete(int id){
         noticeRepository.deleteById(id);
     }
-
-
 }

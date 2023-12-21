@@ -52,7 +52,6 @@ public class NoticeComment {
     }
 
     // 연관관계 메서드
-
     public void setNotice(Notice notice) {
         this.notice = notice;
         if (notice != null) {

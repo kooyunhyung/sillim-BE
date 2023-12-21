@@ -1,6 +1,5 @@
 package com.example.sillim.service;
 
-import com.example.sillim.entity.Notice;
 import com.example.sillim.entity.NoticeComment;
 import com.example.sillim.repository.NoticeCommentRepository;
 import lombok.RequiredArgsConstructor;
@@ -50,7 +49,6 @@ public class NoticeCommentService {
         if (noticeComment.getNotice() != null) {
             noticeComment.getNotice().getCommentList().remove(noticeComment);
         }
-
         noticeCommentRepository.deleteById(commentId);
     }
 

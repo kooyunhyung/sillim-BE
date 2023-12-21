@@ -46,6 +46,7 @@ public class BoardController {
         }
     }
 
+    // Read Popular (board)
     @GetMapping("/board/popular")
     public Optional<List<Board>> getPopularBoards() {
         try {
@@ -57,6 +58,7 @@ public class BoardController {
         }
     }
 
+    // Read Bookmarked (board)
     @GetMapping("/board/bookmark")
     public Optional<List<Board>> getBookmarkedBoards() {
         try {

@@ -19,7 +19,7 @@ import java.util.Optional;
 public class NoticeCommentController {
     private final NoticeCommentService noticeCommentService;
 
-    // Create (notice)
+    // Create (notice comment)
     @PostMapping("/notice/comment")
     public ResponseDto createNoticeComment(@RequestBody NoticeComment noticeCommentParam){
         try{
@@ -36,7 +36,7 @@ public class NoticeCommentController {
     }
 
 
-    // Read All (notice)
+    // Read All (notice comment)
     @GetMapping("/notice/comment/{notice_id}")
     public Optional<List<NoticeComment>> getNoticeComments(@PathVariable int notice_id) {
         try {
@@ -48,7 +48,7 @@ public class NoticeCommentController {
         }
     }
 
-    // Update (notice)
+    // Update (notice comment)
 //    @PostMapping("/notice/comment/{notice_id}")
 //    public ResponseEntity<ResponseDto> updateNotice(@PathVariable int notice_id, @RequestBody NoticeComment updatedNoticeComment) {
 //        try {
@@ -61,7 +61,7 @@ public class NoticeCommentController {
 //        }
 //    }
 
-    // Delete (notice)
+    // Delete (notice comment)
     @DeleteMapping("/notice/comment/{id}")
     public ResponseEntity<ResponseDto> deleteNoticeComment(@PathVariable int id) {
         try {

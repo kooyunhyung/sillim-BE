@@ -1,7 +1,5 @@
 package com.example.sillim.dto;
 
-import com.example.sillim.entity.Board;
-import com.example.sillim.entity.Notice;
 import lombok.Getter;
 import java.util.Optional;
 
@@ -18,6 +16,4 @@ public class ResponseDto<T> {
     public ResponseDto(int statusCode) {
         this.statusCode = statusCode;
     }
-
-
 }

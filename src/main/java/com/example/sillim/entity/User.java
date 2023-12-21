@@ -1,6 +1,5 @@
 package com.example.sillim.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -10,7 +9,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Getter
@@ -45,14 +43,4 @@ public class User {
     @Column(length = 12, nullable = false)
     @JsonProperty("su_phone")
     private String userPhone;
-
-//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-//    @JsonProperty("su_likes_list")
-//    @JsonManagedReference
-//    private List<Likes> likesList;
-//
-//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-//    @JsonProperty("su_bookmark_list")
-//    @JsonManagedReference
-//    private List<Bookmark> bookmarkList;
 }

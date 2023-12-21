@@ -53,8 +53,4 @@ public class UserService {
     public void delete(int id) {
         userRepository.deleteById(id);
     }
-
-
-
-
 }

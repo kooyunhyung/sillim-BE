@@ -25,7 +25,7 @@ public class BoardCommentController {
             if (boardCommentParam != null) {
                 BoardComment result = boardCommentService.save(boardCommentParam);
 
-                // 푸시 알림 전송 코드 작성
+                // 푸시 알림 전송 코드 작성 (보류)
 
                 return new ResponseDto<>(200, Optional.of(result));
             } else {
@@ -50,7 +50,7 @@ public class BoardCommentController {
         }
     }
 
-    // Update (notice)
+    // Update (board comment)
 //    @PostMapping("/notice/comment/{notice_id}")
 //    public ResponseEntity<ResponseDto> updateNotice(@PathVariable int notice_id, @RequestBody NoticeComment updatedNoticeComment) {
 //        try {
